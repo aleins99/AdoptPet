@@ -3,7 +3,6 @@ import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-import ExpensesTest from "./ExpensesTest";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,7 +24,6 @@ const App = () => {
           {/* "id" es el nombre que vamos a usar para recibir con el useParams (puede ser id como cualquier otro identificador)*/}
           <Route path="/details/:id" element={<Details />} />
           <Route path="/" element={<SearchParams />} />
-          <Route path="/expenses/" element={<ExpensesTest />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>
