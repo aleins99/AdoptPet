@@ -9,9 +9,14 @@ export default class Carousel extends Component {
     images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
-  handleIndexClick = () => {
-    console.log(this);
-  }; // arrow functions works better than classic function : when invokes a arrow function doesnt create a new scope
+  handleIndexClick = (e) => {
+    console.log(e);
+    this.setState({
+      // get the index of the image and set to active
+      // if x is a string +x is a integer, x= "3" => +x= 3
+      active: +e.target.dataset.index,
+    });
+  }; // arrow functions works better than classic function in Class Copmponent : when invokes a arrow function doesnt create a new scope
 
   render() {
     const { active } = this.state;
@@ -24,6 +29,7 @@ export default class Carousel extends Component {
             // eslint-disable-next-line
             <img
               onClick={this.handleIndexClick}
+              data-index={index}
               key={image}
               src={image}
               alt={"animal thumbnail "}
